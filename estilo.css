@@ -72,7 +72,7 @@ nav ul li a:hover {
 }
 
 /* 2, 3, 4 e 6. Cartões, Padding, Margin e Bordas modernas */
-section, article, aside {
+section, aside {
     background-color: #ffffff;
     /* 3. Utilize padding para aumentar a área interna dos cartões */
     padding: 30px;
@@ -135,4 +135,39 @@ button a {
     color: white;
     text-decoration: none;
     font-weight: bold;
+}
+/* Título principal */
+#principal {
+    color: #074A11;
+    text-align: center;
+    font-size: 40px;
+}
+
+/* Cartão destacado */
+.destaque {
+    border: 3px solid #9C1700;
+    background-color: #fff5f3;
+}
+
+/* Seletor descendente */
+.card p {
+    color: #444444;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.card {
+    background-color: #ffffff;
+    padding: 30px;
+    margin-bottom: 25px;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px #4DC48A;
+}
+
+article {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
 }
