@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vitor Humel Silva - IFSP Connect</title>
+    <link rel="icon" type="image/png" href="E:\Vitor Humel Silva\IFSP Connect\imagens\logo-ifsp-connect.png">
+    <link rel="stylesheet" type="text/css" href="E:\Vitor Humel Silva\IFSP Connect\css\estilo.css">
+
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <h1> <img src="E:\Vitor Humel Silva\IFSP Connect\imagens\logo-ifsp-connect.png" alt="Logo do IFSP"  width="250" height="160" align="left"> </h1>
+                <li><a href="E:\Vitor Humel Silva\IFSP Connect\index.html">Home</a></li>
+                <li><a href="E:\Vitor Humel Silva\IFSP Connect\paginas\cursos.html">Cursos</a></li>
+                <li><a href="E:\Vitor Humel Silva\IFSP Connect\paginas\eventos.html">Eventos</a></li>
+                <li><a href="E:\Vitor Humel Silva\IFSP Connect\paginas\professores.html">Professores</a></li>
+                <li><a href="E:\Vitor Humel Silva\IFSP Connect\paginas\projeto.html">Projeto Integrador</a></li>
+                <li><a href="E:\Vitor Humel Silva\IFSP Connect\paginas\contato.html">Contato</a></li>
+                <li><a href="E:\Vitor Humel Silva\IFSP Connect\paginas\multimidia.html">Multmidia</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h1>Instituto Federal de São Paulo - IFSP</h1>
+            <h2>Página de cadastro para o IFSP Connect</h2>
+        </section>
+
+        <form action="#" method="post">
+
+            <!-- Seção de Dados Pessoais -->
+            <fieldset>
+                <legend>Dados Pessoais</legend>
+                
+                <p>
+                    <label for="nome">Nome Completo:</label><br>
+                    <input type="text" id="nome" name="nome" required autocomplete="name">
+                </p>
+
+                <p>
+                    <label for="cpf">CPF:</label><br>
+                    <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" required>
+                </p>
+
+                <p>
+                    <label for="senha">Senha:</label><br>
+                    <input type="password" id="senha" name="senha" required minlength="8" placeholder="No mínimo 8 caracteres">
+                </p>
+                
+                <p>
+                    <label for="confirmar_senha">Confirmar Senha:</label><br>
+                    <input type="password" id="confirmar_senha" name="confirmar_senha" required>
+                </p>
+            </fieldset>
+
+            <!-- Seção Acadêmica -->
+            <fieldset>
+                <legend>Informações Acadêmicas</legend>
+                
+                <p>
+                    <label for="cursos">Selecione o curso:</label><br>
+                    <select id="cursos" name="cursos">
+                        <option value="" disabled selected>Selecione uma opção</option>
+                        <option value="ads">ADS - Análise e Desenvolvimento de Sistemas</option>
+                        <option value="tds">TDS - Técnico em Desenvolvimento de Sistemas</option>
+                        <option value="eco">ECO - Engenharia da Computação</option>
+                        <option value="eca">ECA - Engenharia de Controle e Automação</option>
+                        <option value="inf">INF - Informática</option>
+                        <option value="ain">AIN - Automação Industrial</option>
+                        <option value="dss">DSS - Desenvolvimento de Sistemas</option>
+                        <option value="ser">SER - Sistemas de Energia Renovável</option>
+                        <option value="mct">MCT - Mecatrônica</option>
+                        <option value="tai">TAI - Tecnologia em Automação Industrial</option>
+                        <option value="cad">CAD - Computação Aplicada</option>
+                        <option value="tae">TAE - Tecnologias Aplicadas à Educação</option>
+                    </select>
+                </p>
+
+                <fieldset class="sub-group">
+                    <legend>Turno</legend>
+                    <p>
+                        <input type="radio" id="matutino" name="turno" value="matutino">
+                        <label for="matutino">Matutino</label><br>
+
+                        <input type="radio" id="vespertino" name="turno" value="vespertino">
+                        <label for="vespertino">Vespertino</label><br>
+
+                        <input type="radio" id="noturno" name="turno" value="noturno">
+                        <label for="noturno">Noturno</label><br>
+
+                        <input type="radio" id="integral" name="turno" value="integral">
+                        <label for="integral">Integral</label>
+                    </p>
+                </fieldset>
+            </fieldset>
+
+            <!-- Seção de Interesses -->
+            <fieldset>
+                <legend>Interesses</legend>
+
+                <p>
+                    <span id="interesses-label">Áreas de Interesse:</span><br>
+                    
+                    <input type="checkbox" id="tecnologia" name="interesses" value="tecnologia">
+                    <label for="tecnologia">Tecnologia e Inovação</label><br>
+
+                    <input type="checkbox" id="ciencia" name="interesses" value="ciencia">
+                    <label for="ciencia">Ciência e Pesquisa</label><br>
+
+                    <input type="checkbox" id="extensao" name="interesses" value="extensao">
+                    <label for="extensao">Projetos de Extensão</label><br>
+
+                    <input type="checkbox" id="arte_cultura" name="interesses" value="arte_cultura">
+                    <label for="arte_cultura">Arte e Cultura</label>
+                </p>
+            </fieldset>
+
+            <div class="form-actions">
+                <button type="submit">Cadastrar</button>
+                <button type="reset">Limpar</button>
+            </div>
+
+        </form>
+    </main>
+
+</body>
+</html>

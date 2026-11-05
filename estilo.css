@@ -1,0 +1,138 @@
+/* 
+Cores do projeto
+Cor principal: #074A11
+Cor secundária: #4DC48A
+Cor do fundo: ##E3FFE7
+Cor de destaque: #9C1700
+*/
+
+/* 5. Centralizar o conteúdo principal da página e configuração global */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #E3FFE7;
+    color: #333333;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* 1. Organizar o cabeçalho */
+header {
+    background-color: #ffffff;
+    padding: 25px 20px;
+    text-align: center;
+    border-bottom: 4px solid #4DC48A;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+header h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #074A11;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #074A11;
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #4DC48A;
+    color: white;
+}
+
+.banner-conteudo {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+/* 2, 3, 4 e 6. Cartões, Padding, Margin e Bordas modernas */
+section, article, aside {
+    background-color: #ffffff;
+    /* 3. Utilize padding para aumentar a área interna dos cartões */
+    padding: 30px;
+    /* 4. Utilize margin para separar os cartões */
+    margin-bottom: 25px;
+    /* 6. Ajuste as bordas para criar um visual moderno */
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px #4DC48A;
+}
+
+h2 {
+    color: #074A11;
+    margin-top: 0;
+    border-bottom: 2px solid #4DC48A;
+    padding-bottom: 8px;
+}
+
+/* Estilização complementar para tabelas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #4DC48A;
+    color: white;
+}
+
+/* Rodapé e Botão de topo */
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #9C1700;
+    background-color: #ffffff;
+    border-top: 1px solid #e0e0e0;
+    margin-top: 40px;
+}
+
+button {
+    background-color: #9C1700;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 20px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    display: block;
+    margin: 30px auto;
+}
+
+button a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
