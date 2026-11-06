@@ -164,7 +164,7 @@ button a {
     border-radius: 12px;
     box-shadow: 0 4px 12px #4DC48A;
 }
-
+/* Deixar o Article sem sombra para design mais limpo */
 article {
     background: transparent;
     border: none;
