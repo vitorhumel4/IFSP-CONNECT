@@ -4,7 +4,7 @@ Cor principal: #074A11
 Cor secundária: #4DC48A
 Cor do fundo: ##E3FFE7
 Cor de destaque: #9C1700
-Fonte utilizadas: 
+Fonte utilizada
 */
 
 /* 5. Centralizar o conteúdo principal da página e configuração global */
@@ -204,4 +204,41 @@ article {
     border: none;
     box-shadow: none;
     padding: 0;
+}
+
+/* Cartões de notícias */
+.noticia {
+    background-color: #f6fff8;
+    border: 1px solid #e0e0e0;
+    border-left: 6px solid #4DC48A;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+
+    /* Padding: aumenta a área interna do cartão */
+    padding: 20px 24px;
+
+    /* Margin: separa um cartão do outro */
+    margin-bottom: 20px;
+}
+
+.noticia:last-of-type {
+    margin-bottom: 0;
+}
+
+.noticia-data {
+    display: block;
+    font-size: 0.85rem;
+    color: #9C1700;
+    font-weight: 600;
+    margin-bottom: 6px;
+}
+
+.noticia h3 {
+    margin: 0 0 10px;
+    color: #074A11;
+}
+
+.noticia p {
+    margin: 0 0 12px;
+    text-align: left;
 }
