@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200..700&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Oswald:wght@200..700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css-projeto/style_projeto.css">
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="../../paginas/projeto/imagens-projeto/555logo.png">
+    <title>Projeto_Integrador</title>
+</head>
+
+<body>
+    <header id="inicio">
+
+        <h1 id="principal"><img src="../projeto/imagens-projeto/555logo.png" alt="Logo do projeto" width="100" height="100"
+                align="left" class="logo">
+            PROJETO INTEGRADOR</h1>
+
+        <nav>
+            <button onclick="window.location.href='../../index.html'">
+                IFSP CONNECT
+            </button>
+
+            <button onclick="window.location.href='projeto.html'">
+                PROJETO INTEGRADOR
+            </button>
+
+            <button onclick="window.location.href='paginas/estrutura.html'">
+                ESTRUTURA DO PROJETO
+            </button>
+
+            <button onclick="window.location.href='paginas/integracao.html'">
+                INTEGRAÇÃO
+            </button>
+
+        </nav>
+    </header>
+
+    <main>
+        <div class="intuito-do-projeto">
+            <h2> O intuito do projeto integrador</h2>
+            <p>
+                Com o desenvolvimento deste projeto integrador, buscamos colocar em prática os conhecimentos adquiridos
+                ao
+                longo das disciplinas, unindo diferentes áreas de estudo, como eletrônica e desenvolvimento web. Nosso
+                objetivo inicial é aprender e aprimorar nossas habilidades na criação de sites, utilizando HTML, CSS e
+                JavaScript, além de desenvolver conhecimentos relacionados à programação do Arduino e à utilização de
+                componentes eletrônicos.
+            </p>
+            <p>
+                Também pretendemos compreender melhor como os conceitos teóricos estudados nas disciplinas de
+                Eletricidade e
+                Desenvolvimento Front-End podem ser aplicados na prática, por meio da construção de um projeto que
+                integre
+                essas duas áreas.
+            </p>
+            <p>
+                Além do aprendizado técnico, buscamos desenvolver nossa capacidade de trabalhar em equipe, compartilhar
+                conhecimentos e utilizar ferramentas digitais para facilitar a comunicação e a organização das
+                atividades.
+            </p>
+            <p>
+                Por fim, aproveitamos essa experiência para nos familiarizarmos cada vez mais com o ambiente
+                acadêmico, suas atividades e formas de trabalho, especialmente no Instituto Federal de Educação, Ciência
+                e
+                Tecnologia de São Paulo (IFSP), Campus Guarulhos, contribuindo não apenas para nossa formação acadêmica,
+                mas
+                também para nosso desenvolvimento profissional.
+            </p>
+        </div>
+
+        <div class="logo-do-projeto">
+            <h2>Logo do projeto</h2>
+            <img src='../projeto/imagens-projeto/555logo.png' alt="Logo do projeto" width="200" height="200">
+            <p>
+                Nossa logo foi desenhada e pensada para representar um pouco do nosso projeto, um sistema de medição da
+                intensidade luminosa utilizando um sensor LDR, microcontrolador e um display, nele escrito o nome do
+                nosso
+                grupo.
+            </p>
+            <p>
+                O projeto integrador baseia-se no desenvolvimento de um sistema portátil de medição da intensidade
+                luminosa
+                de
+                um ambiente em tempo real.
+            </p>
+            <p>
+                Os métodos utilizados baseiam-se inteiramente na interação entre o circuito e o
+                LDR,
+                em sua maior parte para as conversões necessárias entre resistores, lux e a tensão.
+            </p>
+        </div>
+        
+        <div class="resumo-do-projeto">
+            <h2>Resumo do projeto físico</h2>
+            <p>
+                Este projeto integrador teve como objetivo desenvolver um sistema capaz de medir a intensidade luminosa do
+                ambiente,
+                utilizando um sensor LDR (*Light Dependent Resistor*), um microcontrolador Arduino UNO R3 e um display LCD 16x2.
+                A
+                proposta consistiu na construção de um dispositivo capaz de identificar as variações de luminosidade e
+                apresentar os
+                resultados por meio de valores de iluminância expressos em lux.
+            </p>
+            <p>
+                Para isso, foi desenvolvido um circuito divisor de tensão, responsável por transformar as variações de
+                resistência
+                do sensor LDR em sinais de tensão que pudessem ser interpretados pelo Arduino. O circuito contou com resistores
+                de 1
+                kΩ e 100 kΩ, permitindo trabalhar com diferentes faixas de sensibilidade e ampliar a capacidade de medição em
+                distintas condições de luminosidade.
+            </p>
+            <p>
+                Os valores obtidos pelo Arduino foram processados por meio de equações matemáticas fundamentadas nas
+                características
+                do sensor LDR GL5528. A partir desses cálculos, foi possível estimar a intensidade luminosa incidente sobre o
+                sensor, convertendo as leituras analógicas em valores aproximados de lux. Os resultados foram apresentados em
+                tempo
+                real no display LCD, possibilitando o acompanhamento das variações de luminosidade.
+            </p>
+            <p>
+                Além do desenvolvimento do dispositivo eletrônico, também foi elaborado um site para complementar o
+                funcionamento do
+                projeto e ampliar as possibilidades de visualização dos dados coletados. Para o desenvolvimento do site, foram
+                utilizadas as tecnologias HTML e CSS, responsáveis pela estruturação e estilização das páginas, além da
+                linguagem de
+                programação JavaScript, empregada na implementação de funcionalidades dinâmicas e na integração com o protótipo
+                eletrônico.
+            </p>
+            <p>
+                Na página denominada <strong>"INTEGRAÇÂO"</strong>, foi desenvolvida uma funcionalidade que permite atualizar as informações
+                exibidas no site a partir da conexão do protótipo ao computador por meio de um cabo USB. Dessa maneira, os dados
+                coletados pelo Arduino são transmitidos e apresentados diretamente na página, estabelecendo uma comunicação
+                entre o
+                dispositivo eletrônico e a interface web.
+            </p>
+            <p>
+                O desenvolvimento do projeto envolveu diferentes etapas, começando pela pesquisa bibliográfica e pelo estudo dos
+                princípios físicos e eletrônicos relacionados ao funcionamento do sensor. Em seguida, foram realizadas a
+                modelagem
+                do circuito, a elaboração e os testes da programação, além de simulações computacionais que auxiliaram na
+                verificação do funcionamento do sistema.
+            </p>
+            <p>
+                Por fim, foi realizada a montagem física e a implementação prática do dispositivo, integrando os componentes
+                eletrônicos, o Arduino, o display LCD e o sistema de visualização dos dados por meio do site. Dessa forma, o
+                projeto
+                resultou em uma solução funcional que reuniu conhecimentos de eletricidade, programação e desenvolvimento web,
+                permitindo aplicar na prática os conteúdos trabalhados ao longo das disciplinas.
+        
+            </p>
+        
+        </div>
+
+
+    </main>
+
+    <footer class="rodape-do-projeto">
+
+        <div class="rodape-conteudo">
+
+            <div class="rodape-coluna-explicacao">
+                <h5>▸ IFSP Connect</h5>
+
+                <img src="../../paginas/projeto/imagens-projeto/555logo.png" alt="Logo IFSP Connect" width="100">
+
+                <p>
+                    Projeto acadêmico desenvolvido por alunos do curso de Engenharia de Computação. O objetivo é integrar
+                    conhecimentos adquiridos em diferentes disciplinas, promovendo sua aplicação prática.
+                </p>
+            </div>
+
+            <div class="rodape-coluna">
+                <h5>▸ Navegação</h5>
+
+                <div class="rodape-links">
+                    <a href="../../index.html">⌂ IFSP CONECT</a><br>
+                    <a href="projeto.html">▸ Projeto Integrador</a><br>
+                    <a href="paginas/estrutura.html">▸ Estrutura do Projeto</a><br>
+                    <a href="paginas/integracao.html">▸ Integração</a>
+                </div>
+            </div>
+
+             <div class="rodape-coluna">
+                <h5>▸ Integrantes</h5>
+
+                <div class="rodape-links">
+                    <ul>
+                        <li>BRENO DE OLIVEIRA FONSECA <br> GU3081664</li>
+                        <li>FERNANDO KENZO YAMAGUCHI <br> GU3079708</li>
+                        <li>LUCAS AMORA DA FONSECA <br> GU3080706</li>
+                        <li>RAPHAEL FRANCISCO RODRIGUES JANUARIO <br> GU3079252</li>
+                        <li>RENATO FRANCO GONÇALVES JUNIOR <br> GU3078621</li>
+                        <li>VITOR HUMEL SILVA <br> GU3080579</li>
+                    </ul>
+
+                </div>
+                </div>
+        </div>
+        <hr>
+        <div class="rodape-final">
+
+            <p class="rodape-p">
+                Desenvolvido como projeto acadêmico
+                de Engenharia de Computação.
+            </p>
+
+            <p class="rodape-p">
+                © 2026 IFSP Connect. Todos os direitos reservados.
+            </p>
+
+            <button onclick="window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        })" class="botãoinício">
+                ↑
+            </button>
+
+        </div>
+
+    </footer>
+</body>
+
+</html>
