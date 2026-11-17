@@ -1,0 +1,721 @@
+
+/* =========================================================
+   IFSP CONNECT - CSS PRINCIPAL
+   ========================================================= */
+
+/* 1. CONFIGURAÇÕES GERAIS */
+
+:root {
+    --azul-900: #07173a;
+    --azul-800: #0a2559;
+    --azul-700: #0d3b8e;
+    --azul-500: #1e6fe8;
+    --azul-300: #7fb0ff;
+    --azul-100: #e6f0ff;
+    --azul-50: #f4f8ff;
+    --texto: #1c2a44;
+    --branco: #ffffff;
+
+    --jogo-fundo: #091326;
+    --jogo-painel: #14294b;
+    --jogo-borda: #294b7a;
+    --jogo-dourado: #ffdc75;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: "Lato", Arial, sans-serif;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--texto);
+    background:
+        radial-gradient(
+            circle at top right,
+            var(--azul-100),
+            transparent 45%
+        ),
+        var(--azul-50);
+}
+
+/* 2. CABEÇALHO */
+
+header {
+    background: linear-gradient(
+        135deg,
+        var(--azul-900),
+        var(--azul-700) 60%,
+        var(--azul-500)
+    );
+    color: white;
+    padding: 30px 20px 22px;
+    text-align: center;
+    border-bottom: 5px solid var(--azul-300);
+    box-shadow: 0 6px 20px rgba(7, 23, 58, 0.35);
+}
+
+#principal {
+    font-family: "Bebas Neue", Impact, sans-serif;
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    font-weight: 400;
+    letter-spacing: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 22px;
+    margin: 0 0 20px;
+    text-shadow: 0 3px 10px rgba(0, 0, 0, 0.35);
+}
+
+.logo {
+    border-radius: 50%;
+    background: white;
+    padding: 6px;
+    box-shadow:
+        0 0 0 4px var(--azul-300),
+        0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+nav button {
+    font-family: "Oswald", Arial, sans-serif;
+    font-size: 0.95rem;
+    letter-spacing: 1.5px;
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid var(--azul-300);
+    border-radius: 30px;
+    padding: 10px 24px;
+    cursor: pointer;
+    transition:
+        background 0.25s,
+        color 0.25s,
+        transform 0.25s;
+}
+
+nav button:hover {
+    background: white;
+    color: var(--azul-700);
+    transform: translateY(-3px);
+}
+
+/* 3. CONTEÚDO PRINCIPAL */
+
+main {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.intuito-do-projeto,
+.participantes-projeto,
+.professores-projeto,
+.logo-do-projeto,
+.resumo-do-projeto {
+    background: white;
+    padding: 36px 40px;
+    margin-bottom: 32px;
+    border-radius: 16px;
+    border-left: 8px solid var(--azul-500);
+    box-shadow: 0 8px 24px rgba(13, 59, 142, 0.15);
+}
+
+main h2 {
+    font-family: "Oswald", Arial, sans-serif;
+    font-size: 1.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--azul-700);
+    margin: 0 0 24px;
+    padding-bottom: 12px;
+    position: relative;
+}
+
+main h2::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 80px;
+    height: 4px;
+    border-radius: 2px;
+    background: linear-gradient(
+        90deg,
+        var(--azul-500),
+        var(--azul-300)
+    );
+}
+
+main p {
+    margin: 0 0 18px;
+    text-align: justify;
+}
+
+strong {
+    color: var(--azul-700);
+}
+
+.logo-do-projeto {
+    text-align: center;
+}
+
+.logo-do-projeto h2::after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.logo-do-projeto img {
+    display: block;
+    margin: 0 auto 28px;
+    border-radius: 50%;
+    padding: 10px;
+    background: var(--azul-100);
+    box-shadow:
+        0 0 0 6px var(--azul-300),
+        0 10px 28px rgba(30, 111, 232, 0.35);
+}
+
+.IMG-projeto {
+    max-width: 100%;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 10%;
+    background: var(--azul-100);
+    box-shadow:
+        0 0 0 6px var(--azul-300),
+        0 10px 28px rgba(30, 111, 232, 0.35);
+}
+
+/* 4. PARTICIPANTES */
+
+.participantes-projeto,
+.professores-projeto {
+    padding: 30px;
+}
+
+.participantes-projeto h2 {
+    text-align: left;
+}
+
+.participantes-projeto ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 70px 30px;
+    list-style: none;
+    padding: 0;
+    margin: 40px auto;
+}
+
+.participantes-projeto li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.IMG-participantes-projeto {
+    width: 180px;
+    height: 230px;
+    object-fit: cover;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 50%;
+    background: var(--azul-100);
+    box-shadow:
+        0 0 0 6px var(--azul-300),
+        0 10px 28px rgba(30, 111, 232, 0.35);
+}
+
+.participantes-projeto li p {
+    text-align: center;
+    font-weight: bold;
+    line-height: 1.6;
+    margin: 15px 0 0;
+    padding: 0;
+    max-width: 300px;
+    width: 100%;
+}
+
+@media (max-width: 900px) {
+    .participantes-projeto ul {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .participantes-projeto ul {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 5. PROFESSORES AUXILIARES */
+
+.professores-projeto {
+    padding: 30px;
+}
+
+.professores-projeto h2 {
+    text-align: left;
+}
+
+.professores-projeto ul {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    list-style: none;
+    padding: 0;
+    margin: 40px auto;
+}
+
+.professores-projeto li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-width: 0;
+}
+
+.IMG-professores-projeto {
+    width: 180px;
+    height: 230px;
+    max-width: 100%;
+    object-fit: cover;
+    margin: 20px 0;
+    padding: 10px;
+    border-radius: 50%;
+    background: var(--azul-100);
+    box-shadow:
+        0 0 0 6px var(--azul-300),
+        0 10px 28px rgba(30, 111, 232, 0.35);
+}
+
+.professores-projeto li p {
+    text-align: center;
+    font-weight: bold;
+    line-height: 1.6;
+    margin: 15px 0 0;
+    padding: 0;
+    max-width: 250px;
+    width: 100%;
+}
+
+@media (max-width: 1000px) {
+    .professores-projeto ul {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 50px 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    .professores-projeto ul {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+/* 6. TABELA DE DESENVOLVIMENTO */
+
+.desenvolvimento-projeto {
+    background: var(--branco);
+    padding: 36px 40px;
+    margin-bottom: 32px;
+    border-radius: 16px;
+    border-left: 8px solid var(--azul-500);
+    box-shadow: 0 8px 24px rgba(13, 59, 142, 0.15);
+    overflow-x: auto;
+}
+
+.desenvolvimento-projeto h2 {
+    text-align: left;
+}
+
+.tabela-desenvolvimento {
+    width: 100%;
+    min-width: 650px;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 30px auto 0;
+    background: var(--branco);
+    color: var(--texto);
+    border: 1px solid var(--azul-300);
+    border-radius: 12px;
+    overflow: hidden;
+    font-family: "Lato", Arial, sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.tabela-desenvolvimento thead {
+    background: linear-gradient(
+        135deg,
+        var(--azul-900),
+        var(--azul-700)
+    );
+    color: var(--branco);
+}
+
+.tabela-desenvolvimento th {
+    padding: 20px 15px;
+    text-align: center;
+    vertical-align: middle;
+    font-family: "Oswald", Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.tabela-desenvolvimento th:last-child {
+    border-right: none;
+}
+
+.tabela-desenvolvimento td {
+    padding: 18px 16px;
+    text-align: left;
+    vertical-align: middle;
+    border-bottom: 1px solid var(--azul-100);
+    transition: background-color 0.25s;
+}
+
+.tabela-desenvolvimento td:first-child {
+    width: 18%;
+    text-align: center;
+    font-weight: 700;
+    color: var(--azul-700);
+    border-right: 1px solid var(--azul-100);
+}
+
+.tabela-desenvolvimento th:nth-child(2),
+.tabela-desenvolvimento td:nth-child(2),
+.tabela-desenvolvimento th:nth-child(3),
+.tabela-desenvolvimento td:nth-child(3) {
+    width: 41%;
+}
+
+.tabela-desenvolvimento tbody tr:nth-child(even) {
+    background: var(--azul-50);
+}
+
+.tabela-desenvolvimento tbody tr:hover {
+    background: var(--azul-100);
+}
+
+.tabela-desenvolvimento tbody tr:last-child {
+    background: var(--azul-100);
+}
+
+.tabela-desenvolvimento tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.tabela-desenvolvimento tbody tr:last-child td:first-child {
+    color: var(--azul-800);
+    font-weight: 800;
+}
+
+@media (max-width: 900px) {
+    .desenvolvimento-projeto {
+        padding: 25px 20px;
+    }
+
+    .tabela-desenvolvimento {
+        font-size: 0.85rem;
+    }
+
+    .tabela-desenvolvimento th,
+    .tabela-desenvolvimento td {
+        padding: 12px 10px;
+    }
+}
+
+@media (max-width: 600px) {
+    .desenvolvimento-projeto {
+        padding: 20px 15px;
+    }
+
+    .tabela-desenvolvimento {
+        font-size: 0.85rem;
+    }
+
+    .tabela-desenvolvimento th {
+        font-size: 0.9rem;
+    }
+}
+
+/* 7. MONITOR DE LUMINOSIDADE */
+
+.monitor-lux {
+    background: white;
+    padding: 36px 40px;
+    margin-bottom: 35px;
+    border-radius: 16px;
+    border-left: 8px solid var(--azul-500);
+    box-shadow: 0 8px 24px rgba(13, 59, 142, 0.15);
+    text-align: center;
+}
+
+.monitor-lux h2::after {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.monitor-lux .monitor-descricao,
+.monitor-lux .monitor-ajuda,
+.monitor-lux .monitor-status {
+    text-align: center;
+}
+
+.monitor-visor {
+    max-width: 440px;
+    margin: 24px auto;
+    padding: 28px 12px;
+    background: linear-gradient(
+        135deg,
+        #07173a,
+        #0d3b8e
+    );
+    color: white;
+    border-radius: 12px;
+    box-shadow:
+        inset 0 0 20px rgba(0, 0, 0, 0.2),
+        0 6px 18px rgba(7, 23, 58, 0.2);
+    font-variant-numeric: tabular-nums;
+}
+
+#lux {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    font-weight: 700;
+    color: white;
+}
+
+.monitor-unidade {
+    font-size: 1.35rem;
+    color: var(--azul-300);
+}
+
+.monitor-status {
+    color: var(--azul-700);
+    font-weight: 700;
+}
+
+.monitor-acoes {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.monitor-acoes button {
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font: 600 1rem "Lato", Arial, sans-serif;
+    background: var(--azul-500);
+    color: white;
+    cursor: pointer;
+    transition:
+        filter 0.2s,
+        transform 0.2s;
+}
+
+.monitor-acoes button:hover:not(:disabled) {
+    filter: brightness(1.12);
+    transform: translateY(-2px);
+}
+
+.monitor-acoes #reiniciar-arduino {
+    background: #a83b3b;
+}
+
+.monitor-acoes button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.monitor-lux .monitor-ajuda {
+    font-size: 0.85rem;
+    margin-top: 18px;
+    color: #51617b;
+}
+
+/* 8. RODAPÉ */
+
+.rodape-do-projeto {
+    background: var(--azul-900);
+    color: var(--azul-100);
+    padding: 50px 20px 25px;
+    margin-top: 50px;
+    border-top: 5px solid var(--azul-500);
+}
+
+.rodape-conteudo {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1.3fr;
+    gap: 40px;
+}
+
+.rodape-do-projeto h5 {
+    font-family: "Oswald", Arial, sans-serif;
+    font-size: 1.15rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--azul-300);
+    margin: 0 0 16px;
+}
+
+.rodape-coluna-explicacao img {
+    border-radius: 50%;
+    background: white;
+    padding: 5px;
+    margin-bottom: 12px;
+}
+
+.rodape-coluna-explicacao p {
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.rodape-links a {
+    display: inline-block;
+    color: var(--azul-100);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 4px 0;
+    transition:
+        color 0.2s,
+        transform 0.2s;
+}
+
+.rodape-links a:hover {
+    color: var(--azul-300);
+    transform: translateX(6px);
+}
+
+.rodape-links ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.rodape-links li {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(127, 176, 255, 0.2);
+}
+
+.rodape-links li:last-child {
+    border-bottom: none;
+}
+
+.rodape-do-projeto hr {
+    max-width: 1100px;
+    margin: 35px auto 20px;
+    border: none;
+    height: 1px;
+    background: rgba(127, 176, 255, 0.35);
+}
+
+.rodape-final {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.rodape-p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--azul-300);
+}
+
+.botãoinício {
+    width: 46px;
+    height: 46px;
+    font-size: 1.4rem;
+    line-height: 1;
+    color: white;
+    background: var(--azul-500);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(30, 111, 232, 0.5);
+    transition:
+        background 0.25s,
+        transform 0.25s;
+}
+
+.botãoinício:hover {
+    background: var(--azul-300);
+    color: var(--azul-900);
+    transform: translateY(-4px);
+}
+
+/* 9. RESPONSIVIDADE GERAL */
+
+@media (max-width: 800px) {
+    .rodape-conteudo {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    #principal {
+        flex-direction: column;
+        gap: 12px;
+        letter-spacing: 2px;
+    }
+
+    .intuito-do-projeto,
+    .participantes-projeto,
+    .professores-projeto,
+    .logo-do-projeto,
+    .resumo-do-projeto {
+        padding: 24px 20px;
+    }
+
+    main {
+        padding: 0 12px;
+    }
+
+    main p {
+        text-align: left;
+    }
+
+    .monitor-lux {
+        padding: 24px 20px;
+    }
+
+    .monitor-visor {
+        padding: 22px 10px;
+    }
+
+    .rodape-final {
+        justify-content: center;
+        text-align: center;
+    }
+}
