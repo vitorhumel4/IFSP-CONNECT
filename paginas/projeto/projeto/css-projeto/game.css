@@ -1,0 +1,1484 @@
+/* =========================================================
+   ECLIPSE RUN - CSS DO JOGO
+   Carregar depois de style.css
+   ========================================================= */
+
+/* 1. ESTRUTURA DO JOGO */
+
+.eclipse-box {
+    max-width: 1100px;
+    margin: 35px auto;
+    padding: 24px;
+    background: var(--jogo-fundo, #091326);
+    color: white;
+    border: 1px solid var(--jogo-borda, #294b7a);
+    border-radius: 18px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+    font-family: Arial, sans-serif;
+}
+
+.eclipse-box * {
+    box-sizing: border-box;
+}
+
+.eclipse-cabecalho {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.eclipse-box .eclipse-cabecalho h2 {
+    color: var(--jogo-dourado, #ffdc75);
+    font-size: 30px;
+    margin: 0 0 10px;
+    padding: 0;
+    letter-spacing: 1px;
+}
+
+.eclipse-cabecalho h2::after {
+    display: none;
+}
+
+.eclipse-cabecalho p {
+    color: #c3d4ee;
+    margin: 0;
+    text-align: center;
+}
+
+/* 2. PAINEL DO JOGO */
+
+.eclipse-painel {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 16px;
+    background: var(--jogo-painel, #14294b);
+    border-radius: 12px 12px 0 0;
+}
+
+.eclipse-painel > div {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.eclipse-painel > div:nth-child(2) {
+    text-align: center;
+}
+
+.eclipse-painel > div:last-child {
+    text-align: right;
+}
+
+.eclipse-painel span {
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #9fb7dc;
+}
+
+.eclipse-painel strong {
+    font-size: 23px;
+    color: white;
+}
+
+#eclipse-modo {
+    color: #ffda65;
+}
+
+/* 3. CENÁRIO */
+
+.eclipse-cenario {
+    position: relative;
+    height: 420px;
+    overflow: hidden;
+    isolation: isolate;
+    background: linear-gradient(
+        #407eaf,
+        #83b9dc 65%,
+        #e5ba8a
+    );
+    transition: background 0.5s;
+}
+
+.eclipse-cenario.noite {
+    background: linear-gradient(
+        #080d26,
+        #172c59 65%,
+        #38496e
+    );
+}
+
+/* 4. SOL */
+
+.eclipse-sol {
+    position: absolute;
+    top: 45px;
+    right: 15%;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        #fff9c2,
+        #ffe16d 55%,
+        #ffc548
+    );
+    box-shadow:
+        0 0 35px #ffda60,
+        0 0 90px #ffc13d80;
+    transition:
+        opacity 0.5s,
+        transform 0.5s;
+    pointer-events: none;
+}
+
+.eclipse-cenario.noite .eclipse-sol {
+    opacity: 0;
+    transform: translateY(120px);
+}
+
+/* 5. LUA */
+
+.eclipse-lua {
+    position: absolute;
+    top: 45px;
+    right: 15%;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #e5efff;
+    box-shadow: 0 0 35px #a8c6ff;
+    opacity: 0;
+    transform: translateY(-120px);
+    transition:
+        opacity 0.5s,
+        transform 0.5s;
+    pointer-events: none;
+}
+
+.eclipse-lua::after {
+    content: "";
+    position: absolute;
+    top: -12px;
+    left: 26px;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: #172c59;
+}
+
+.eclipse-cenario.noite .eclipse-lua {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 6. ESTRELAS */
+
+.eclipse-estrelas {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s;
+    background-image:
+        radial-gradient(2px 2px at 12% 18%, white 98%, transparent),
+        radial-gradient(2px 2px at 28% 32%, white 98%, transparent),
+        radial-gradient(3px 3px at 48% 15%, white 98%, transparent),
+        radial-gradient(2px 2px at 67% 25%, white 98%, transparent),
+        radial-gradient(2px 2px at 87% 12%, white 98%, transparent),
+        radial-gradient(2px 2px at 93% 47%, white 98%, transparent);
+}
+
+.eclipse-cenario.noite .eclipse-estrelas {
+    opacity: 1;
+}
+
+/* 7. MONTANHAS */
+
+.eclipse-montanhas {
+    position: absolute;
+    bottom: 80px;
+    width: 100%;
+    height: 190px;
+    background: #304b68;
+    opacity: 0.7;
+    clip-path: polygon(
+        0 80%,
+        12% 35%,
+        25% 75%,
+        40% 20%,
+        57% 78%,
+        75% 30%,
+        90% 75%,
+        100% 40%,
+        100% 100%,
+        0 100%
+    );
+    pointer-events: none;
+}
+
+/* 8. MUNDO E PLATAFORMAS */
+
+#eclipse-mundo {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    will-change: transform;
+}
+
+.eclipse-plataforma {
+    position: absolute;
+    bottom: 80px;
+    height: 28px;
+    margin: 0;
+    border-radius: 0;
+    box-sizing: border-box;
+    transition: none;
+}
+
+/* PLATAFORMAS DE PEDRA */
+
+.eclipse-plataforma.pedra {
+    background:
+        repeating-linear-gradient(
+            105deg,
+            transparent 0 24px,
+            #444d5a 25px 27px,
+            transparent 28px 48px
+        ),
+        linear-gradient(
+            #a0a9b5,
+            #5b6575
+        );
+    border-top: 5px solid #b6bec8;
+    border-bottom: 5px solid #3a4352;
+    box-shadow: 0 8px 0 #343d4a;
+    opacity: 1;
+    animation: none;
+}
+
+/* PONTE DO SOL */
+
+.eclipse-plataforma.sol {
+    background: linear-gradient(
+        #fff3ae,
+        #edbd43,
+        #ae771d
+    );
+    border: 2px solid #ffe88c;
+    box-shadow:
+        0 0 16px #ffd24e,
+        0 0 30px #ffba3570;
+}
+
+/* PONTE DA LUA */
+
+.eclipse-plataforma.lua {
+    background: linear-gradient(
+        #f6faff,
+        #b9d1f4,
+        #718eb9
+    );
+    border: 2px solid #e5f2ff;
+    box-shadow:
+        0 0 16px #c3dfff,
+        0 0 30px #95bdff70;
+}
+
+/* PLATAFORMAS DESATIVADAS */
+
+.eclipse-plataforma.invisivel {
+    opacity: 0 !important;
+    animation: none !important;
+    box-shadow: none !important;
+}
+
+/* PISCADA DAS PLATAFORMAS */
+
+.eclipse-plataforma.piscando:not(.invisivel) {
+    animation: eclipsePiscar 0.12s linear infinite alternate;
+}
+
+@keyframes eclipsePiscar {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0.15;
+    }
+}
+
+/* 9. PERSONAGEM */
+
+.eclipse-personagem {
+    --olho-cor: #dcecff;
+    --olho-brilho: #83c9ff;
+    --duracao-corrida: 0.3s;
+
+    position: absolute;
+    left: 24%;
+    bottom: 108px;
+    width: 40px;
+    height: 72px;
+    z-index: 5;
+    transform-origin: center bottom;
+    overflow: visible;
+}
+
+.eclipse-cenario.noite .eclipse-personagem {
+    --olho-cor: #ffe27a;
+    --olho-brilho: #ffad24;
+}
+
+/* 10. CAPUZ */
+
+.eclipse-cabeca {
+    position: absolute;
+    top: 0;
+    left: 7px;
+    width: 30px;
+    height: 30px;
+    border-radius: 0;
+    background: linear-gradient(
+        125deg,
+        #526782 0%,
+        #26364d 38%,
+        #0b1423 76%,
+        #030711 100%
+    );
+    clip-path: polygon(
+        0% 45%,
+        12% 20%,
+        43% 0%,
+        69% 15%,
+        100% 48%,
+        81% 62%,
+        85% 84%,
+        57% 100%,
+        17% 90%,
+        0% 68%
+    );
+    z-index: 9;
+    animation:
+        eclipseCabecaSuave
+        var(--duracao-corrida)
+        ease-in-out infinite;
+}
+
+.eclipse-cabeca::before {
+    content: "";
+    position: absolute;
+    top: 7px;
+    right: 0;
+    width: 23px;
+    height: 13px;
+    background: linear-gradient(
+        120deg,
+        #435a77,
+        #111c2e
+    );
+    clip-path: polygon(
+        0 15%,
+        42% 0,
+        100% 83%,
+        43% 65%,
+        0 100%
+    );
+    z-index: 2;
+}
+
+.eclipse-cabeca::after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    right: 1px;
+    width: 16px;
+    height: 13px;
+    background: #02050b;
+    clip-path: polygon(
+        8% 0,
+        100% 13%,
+        90% 75%,
+        40% 100%,
+        0 63%
+    );
+    z-index: 3;
+}
+
+/* 11. OLHO DO PERSONAGEM */
+
+.eclipse-olho {
+    position: absolute;
+    top: 19px;
+    left: 20px;
+    width: 5px;
+    height: 3px;
+    border-radius: 50%;
+    background: var(--olho-cor);
+    box-shadow:
+        0 0 4px var(--olho-cor),
+        0 0 9px var(--olho-brilho),
+        0 0 14px var(--olho-brilho);
+    z-index: 10;
+    transition:
+        background-color 0.25s,
+        box-shadow 0.25s;
+}
+
+.eclipse-olho::before,
+.eclipse-olho::after {
+    content: none;
+    display: none;
+}
+
+/* 12. CORPO */
+
+.eclipse-corpo {
+    position: absolute;
+    top: 24px;
+    left: 13px;
+    width: 19px;
+    height: 28px;
+    border-radius: 7px 7px 3px 3px;
+    background: linear-gradient(
+        90deg,
+        #0b111e,
+        #344761 55%,
+        #0a1220
+    );
+    z-index: 6;
+    transform-origin: center 5px;
+    animation:
+        eclipseCorpoSuave
+        var(--duracao-corrida)
+        ease-in-out infinite;
+}
+
+/* 13. SOBRETUDO */
+
+.eclipse-corpo::before {
+    content: "";
+    position: absolute;
+    top: 1px;
+    left: -14px;
+    width: 34px;
+    height: 47px;
+    background: linear-gradient(
+        105deg,
+        #060b15 0%,
+        #18263b 25%,
+        #354861 60%,
+        #101a2b 100%
+    );
+    clip-path: polygon(
+        46% 0%,
+        100% 8%,
+        91% 98%,
+        69% 94%,
+        48% 100%,
+        25% 96%,
+        0% 100%,
+        14% 49%
+    );
+    transform-origin: 65% 5%;
+    z-index: -1;
+    animation:
+        eclipseSobretudoLongo
+        var(--duracao-corrida)
+        ease-in-out infinite;
+}
+
+.eclipse-corpo::after {
+    content: "";
+    position: absolute;
+    top: 4px;
+    right: 3px;
+    width: 3px;
+    height: 23px;
+    border-radius: 2px;
+    background: linear-gradient(
+        #71859f,
+        #26364c
+    );
+    opacity: 0.75;
+}
+
+/* 14. BRAÇOS */
+
+.eclipse-braco {
+    position: absolute;
+    top: 28px;
+    width: 7px;
+    height: 21px;
+    border-radius: 5px;
+    background: linear-gradient(
+        #34455d,
+        #0b111e 65%,
+        #050912
+    );
+    transform-origin: center 3px;
+}
+
+.eclipse-braco.esquerdo {
+    left: 14px;
+    z-index: 3;
+    animation:
+        eclipseBracoSuave
+        var(--duracao-corrida)
+        ease-in-out infinite reverse;
+}
+
+.eclipse-braco.direito {
+    left: 25px;
+    z-index: 8;
+    animation:
+        eclipseBracoSuave
+        var(--duracao-corrida)
+        ease-in-out infinite;
+}
+
+.eclipse-braco::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 7px;
+    height: 7px;
+    border-radius: 4px;
+    background: #030711;
+}
+
+/* 15. PERNAS */
+
+.eclipse-perna {
+    position: absolute;
+    top: 46px;
+    width: 8px;
+    height: 26px;
+    border-radius: 5px;
+    background: linear-gradient(
+        #233247,
+        #090f1b 70%,
+        #030711
+    );
+    transform-origin: center 3px;
+}
+
+.eclipse-perna.esquerda {
+    left: 14px;
+    z-index: 2;
+    animation:
+        eclipsePernaSuave
+        var(--duracao-corrida)
+        ease-in-out infinite reverse;
+}
+
+.eclipse-perna.direita {
+    left: 23px;
+    z-index: 4;
+    animation:
+        eclipsePernaSuave
+        var(--duracao-corrida)
+        ease-in-out infinite;
+}
+
+.eclipse-perna::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 13px;
+    height: 7px;
+    background: #030711;
+    border-radius: 3px 5px 2px 2px;
+}
+
+/* 16. ANIMAÇÕES DE CORRIDA */
+
+@keyframes eclipsePernaSuave {
+    0% {
+        transform: rotate(-14deg);
+    }
+
+    25% {
+        transform: rotate(-5deg);
+    }
+
+    50% {
+        transform: rotate(14deg);
+    }
+
+    75% {
+        transform: rotate(5deg);
+    }
+
+    100% {
+        transform: rotate(-14deg);
+    }
+}
+
+@keyframes eclipseBracoSuave {
+    0% {
+        transform: rotate(20deg);
+    }
+
+    25% {
+        transform: rotate(5deg);
+    }
+
+    50% {
+        transform: rotate(-20deg);
+    }
+
+    75% {
+        transform: rotate(-5deg);
+    }
+
+    100% {
+        transform: rotate(20deg);
+    }
+}
+
+@keyframes eclipseCorpoSuave {
+    0%, 100% {
+        transform: translateY(0) rotate(2deg);
+    }
+
+    50% {
+        transform: translateY(1px) rotate(4deg);
+    }
+}
+
+@keyframes eclipseCabecaSuave {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(1px);
+    }
+}
+
+@keyframes eclipseSobretudoLongo {
+    0%, 100% {
+        transform: skewX(-5deg) rotate(-3deg);
+    }
+
+    50% {
+        transform: skewX(-10deg) rotate(-7deg);
+    }
+}
+
+/* 17. PERSONAGEM ERGUENDO O BRAÇO */
+
+.eclipse-personagem.absorvendo-sol
+.eclipse-braco.direito,
+.eclipse-personagem.devolvendo-sol
+.eclipse-braco.direito {
+    animation:
+        eclipseErguerBraco
+        0.9s ease-in-out forwards !important;
+}
+
+@keyframes eclipseErguerBraco {
+    0% {
+        transform: rotate(15deg);
+    }
+
+    20% {
+        transform: rotate(15deg);
+    }
+
+    38% {
+        transform: rotate(155deg);
+    }
+
+    80% {
+        transform: rotate(155deg);
+    }
+
+    100% {
+        transform: rotate(15deg);
+    }
+}
+
+/* 18. MÃO COM ENERGIA SOLAR */
+
+.eclipse-mao-solar {
+    position: absolute;
+    bottom: -3px;
+    left: -2px;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: transparent;
+    opacity: 0;
+    pointer-events: none;
+    transition:
+        opacity 0.2s,
+        background-color 0.2s,
+        box-shadow 0.2s;
+}
+
+.eclipse-personagem.energia-solar
+.eclipse-mao-solar {
+    opacity: 1;
+    background: #ffe58a;
+    box-shadow:
+        0 0 7px #fff1a4,
+        0 0 14px #ffcb43,
+        0 0 25px #ffab1c,
+        0 0 40px #ff9d00;
+    animation:
+        eclipsePulsoSolar
+        0.9s ease-in-out infinite alternate;
+}
+
+@keyframes eclipsePulsoSolar {
+    from {
+        filter: brightness(0.85);
+        box-shadow:
+            0 0 5px #ffe58a,
+            0 0 12px #ffb92c,
+            0 0 20px #ff9d00;
+    }
+
+    to {
+        filter: brightness(1.4);
+        box-shadow:
+            0 0 10px #fff1a4,
+            0 0 22px #ffcb43,
+            0 0 35px #ff9d00,
+            0 0 50px #ff9d00;
+    }
+}
+
+/* 19. PARTÍCULAS SOLARES */
+
+.eclipse-particulas {
+    position: absolute;
+    inset: 0;
+    z-index: 12;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.eclipse-particula-solar {
+    position: absolute;
+    border-radius: 50%;
+    background: #ffe58a;
+    box-shadow:
+        0 0 7px #fff2a5,
+        0 0 15px #ffca38;
+    pointer-events: none;
+    will-change: transform, opacity;
+}
+
+/* 20. NÚCLEO SOLAR */
+
+.eclipse-nucleo-solar {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(
+        circle,
+        #ffffff 0%,
+        #fff3aa 20%,
+        #ffce48 50%,
+        transparent 75%
+    );
+    box-shadow:
+        0 0 25px #ffd447,
+        0 0 55px #ffab25;
+    opacity: 0;
+    z-index: 11;
+    pointer-events: none;
+}
+
+.eclipse-nucleo-solar.ativo {
+    animation:
+        eclipseNucleoAbsorcao
+        0.9s ease-in-out forwards;
+}
+
+@keyframes eclipseNucleoAbsorcao {
+    0% {
+        opacity: 0;
+        scale: 0.4;
+    }
+
+    20% {
+        opacity: 1;
+        scale: 1.5;
+    }
+
+    65% {
+        opacity: 1;
+        scale: 0.7;
+    }
+
+    100% {
+        opacity: 0;
+        scale: 0.1;
+    }
+}
+
+/* 21. AURA SOLAR */
+
+.eclipse-aura-solar {
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    border: 2px solid #ffd75c;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow:
+        0 0 15px #ffcb43,
+        inset 0 0 12px #ffcb43;
+    opacity: 0;
+    z-index: 11;
+    pointer-events: none;
+}
+
+.eclipse-aura-solar.ativa {
+    animation:
+        eclipseAuraAbsorcao
+        0.9s ease-in-out forwards;
+}
+
+@keyframes eclipseAuraAbsorcao {
+    0% {
+        opacity: 0;
+        scale: 0.2;
+    }
+
+    35% {
+        opacity: 1;
+        scale: 1;
+    }
+
+    70% {
+        opacity: 0.8;
+        scale: 0.7;
+    }
+
+    100% {
+        opacity: 0;
+        scale: 0.2;
+    }
+}
+
+/* 22. ESFERA DE ENERGIA */
+
+.eclipse-esfera-solar {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        #ffffff 0%,
+        #fff4a6 30%,
+        #ffc532 65%,
+        #ff9700 100%
+    );
+    box-shadow:
+        0 0 12px #fff0a0,
+        0 0 28px #ffc23e,
+        0 0 45px #ff9c00;
+    opacity: 0;
+    z-index: 13;
+    pointer-events: none;
+}
+
+/* 23. FLASH CELESTE */
+
+.eclipse-flash-celeste {
+    position: absolute;
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(
+        circle,
+        #ffffff 0%,
+        #fff6b5 20%,
+        #ffd34d 42%,
+        rgba(255, 184, 40, 0.4) 65%,
+        transparent 75%
+    );
+    opacity: 0;
+    z-index: 14;
+    pointer-events: none;
+}
+
+.eclipse-flash-celeste.ativo {
+    animation:
+        eclipseFlashCeleste
+        0.45s ease-out forwards;
+}
+
+@keyframes eclipseFlashCeleste {
+    0% {
+        opacity: 0;
+        scale: 0.3;
+    }
+
+    35% {
+        opacity: 1;
+        scale: 1.25;
+    }
+
+    100% {
+        opacity: 0;
+        scale: 1.8;
+    }
+}
+
+/* 24. TRANSFORMAÇÃO DA LUA EM SOL */
+
+.eclipse-cenario.transformando-dia .eclipse-lua {
+    opacity: 1;
+    transform: translateY(0);
+    animation:
+        eclipseLuaViraSol
+        0.9s ease-in-out forwards;
+}
+
+@keyframes eclipseLuaViraSol {
+    0% {
+        filter: brightness(1);
+        opacity: 1;
+    }
+
+    55% {
+        filter: brightness(1.2);
+        opacity: 1;
+    }
+
+    75% {
+        filter: brightness(3);
+        opacity: 0.8;
+    }
+
+    100% {
+        filter: brightness(5);
+        opacity: 0;
+    }
+}
+
+.eclipse-cenario.transformando-dia .eclipse-sol {
+    animation:
+        eclipseSolRenasce
+        0.9s ease-in-out forwards;
+}
+
+@keyframes eclipseSolRenasce {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+        filter: brightness(0.5);
+    }
+
+    65% {
+        opacity: 0;
+        transform: scale(0.5);
+        filter: brightness(1);
+    }
+
+    85% {
+        opacity: 1;
+        transform: scale(1.3);
+        filter: brightness(2);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        filter: brightness(1);
+    }
+}
+
+/* 25. PERSONAGEM PARADO */
+
+.eclipse-personagem.parado .eclipse-braco,
+.eclipse-personagem.parado .eclipse-perna,
+.eclipse-personagem.parado .eclipse-cabeca,
+.eclipse-personagem.parado .eclipse-corpo,
+.eclipse-personagem.parado .eclipse-corpo::before {
+    animation-play-state: paused;
+}
+
+/* 26. PERSONAGEM CAINDO */
+
+.eclipse-personagem.caindo {
+    animation: eclipseCair 0.8s forwards ease-in;
+}
+
+.eclipse-personagem.caindo .eclipse-braco,
+.eclipse-personagem.caindo .eclipse-perna,
+.eclipse-personagem.caindo .eclipse-cabeca,
+.eclipse-personagem.caindo .eclipse-corpo,
+.eclipse-personagem.caindo .eclipse-corpo::before {
+    animation-play-state: paused;
+}
+
+@keyframes eclipseCair {
+    from {
+        transform: translateY(0) rotate(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateY(300px) rotate(70deg);
+        opacity: 0;
+    }
+}
+
+/* 27. AVISOS DO JOGO */
+
+.eclipse-aviso {
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    color: #ffe38b;
+    text-shadow: 0 0 12px black;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 15;
+}
+
+.eclipse-aviso.aparecer {
+    animation: eclipseAviso 1.5s forwards;
+}
+
+@keyframes eclipseAviso {
+    0% {
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    75% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+/* 28. TELAS DE INÍCIO E FIM */
+
+.eclipse-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    padding: 20px;
+    text-align: center;
+    background: rgba(7, 16, 35, 0.93);
+}
+
+.eclipse-overlay.eclipse-oculto {
+    display: none;
+}
+
+.eclipse-overlay h2 {
+    color: white;
+    font-size: clamp(25px, 5vw, 45px);
+    margin: 0;
+    padding: 0;
+}
+
+.eclipse-overlay h2::after {
+    display: none;
+}
+
+.eclipse-overlay h2 span {
+    color: #ffd45e;
+}
+
+.eclipse-overlay p {
+    color: #d4e1f5;
+    font-size: 19px;
+    margin: 0;
+    text-align: center;
+}
+
+#eclipse-resultado {
+    color: #ffd45e;
+    font-size: 36px;
+}
+
+/* =========================================================
+   29. BOTÕES DO JOGO - PADRONIZAÇÃO
+   ========================================================= */
+
+.eclipse-box button {
+    background: linear-gradient(
+        135deg,
+        #203959,
+        #14294b
+    );
+
+    color: #ffffff;
+    border: 1px solid #34547f;
+    border-radius: 8px;
+
+    padding: 13px 22px;
+
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+
+    transition:
+        filter 0.2s,
+        transform 0.2s,
+        border-color 0.2s,
+        box-shadow 0.2s,
+        opacity 0.2s;
+}
+
+/* Mouse sobre os botões */
+
+.eclipse-box button:hover:not(:disabled) {
+    filter: brightness(1.25);
+    transform: translateY(-2px);
+    border-color: #7fb0ff;
+}
+
+/* Botão pressionado */
+
+.eclipse-box button:active:not(:disabled) {
+    transform: scale(0.97);
+}
+
+/* Botões desabilitados */
+
+.eclipse-box button:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    transform: none;
+    filter: none;
+}
+
+/* Foco pelo teclado */
+
+.eclipse-box button:focus-visible {
+    outline: 2px solid #7fb0ff;
+    outline-offset: 3px;
+}
+
+/* 30. RODAPÉ DO JOGO */
+
+.eclipse-rodape {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 14px;
+    background: var(--jogo-painel, #14294b);
+    color: #d2e1f7;
+    border-radius: 0 0 12px 12px;
+}
+
+/* =========================================================
+   31. CONFIGURAÇÕES DO JOGO
+   ========================================================= */
+
+.eclipse-configuracao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.eclipse-configuracao p {
+    width: 100%;
+    color: #b8cce7;
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 8px 0 0;
+    text-align: center;
+    text-indent: 0;
+}
+
+/* Botão conectar Arduino */
+
+.eclipse-box #eclipse-conectar-arduino {
+    background: linear-gradient(
+        135deg,
+        #203959,
+        #14294b
+    );
+
+    color: #ffffff;
+    border: 1px solid #34547f;
+    min-height: 44px;
+}
+
+/* Botão reiniciar Arduino */
+
+.eclipse-box #eclipse-reiniciar-arduino {
+    background: linear-gradient(
+        135deg,
+        #203959,
+        #14294b
+    );
+
+    color: #ffffff;
+    border: 1px solid #34547f;
+    min-height: 44px;
+}
+
+/* Botão calibrar luminosidade */
+
+.eclipse-box #eclipse-calibrar {
+    background: linear-gradient(
+        135deg,
+        #203959,
+        #14294b
+    );
+
+    color: #ffffff;
+    border: 1px solid #34547f;
+    min-height: 44px;
+}
+
+/* =========================================================
+   32. DIFICULDADES
+   ========================================================= */
+
+.eclipse-dificuldades {
+    width: min(100%, 440px);
+    padding: 15px;
+    background: #14294b;
+    border: 1px solid #34547f;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.eclipse-dificuldades > p {
+    margin: 0 0 12px;
+    color: #c9d9f0;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.eclipse-opcoes {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+/* Botões de dificuldade */
+
+.eclipse-box .eclipse-overlay .eclipse-dificuldade {
+    flex: 1;
+    min-width: 90px;
+    padding: 11px 8px;
+
+    border: 1px solid #34547f;
+    border-radius: 8px;
+
+    background: linear-gradient(
+        135deg,
+        #203959,
+        #14294b
+    );
+
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+/* Mouse sobre a dificuldade */
+
+.eclipse-box .eclipse-overlay .eclipse-dificuldade:hover {
+    background: linear-gradient(
+        135deg,
+        #203959,
+        #14294b
+    );
+
+    border-color: #7fb0ff;
+    filter: brightness(1.25);
+}
+
+/* Dificuldade selecionada */
+
+.eclipse-box .eclipse-overlay .eclipse-dificuldade.selecionado {
+    background: linear-gradient(
+        135deg,
+        #203959,
+        #14294b
+    );
+
+    color: #ffffff;
+    border-color: #7fb0ff;
+    box-shadow: 0 0 12px #7fb0ff55;
+}
+
+#eclipse-descricao-dificuldade {
+    display: block;
+    margin-top: 12px;
+    font-size: 13px;
+    color: #c7d7ee;
+}
+
+/* =========================================================
+   33. CONTROLES SUPERIORES
+   ========================================================= */
+
+.eclipse-controles-superiores {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+/* Botão usar teclado */
+
+.eclipse-box #eclipse-teclado {
+    background: linear-gradient(
+        135deg,
+        #203959,
+        #14294b
+    );
+
+    color: #ffffff;
+    border: 1px solid #34547f;
+    border-radius: 8px;
+
+    padding: 10px 15px;
+
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.eclipse-box #eclipse-teclado:hover:not(:disabled) {
+    filter: brightness(1.25);
+    border-color: #7fb0ff;
+}
+
+/* =========================================================
+   34. BOTÕES DE INÍCIO E REINÍCIO
+   ========================================================= */
+
+.eclipse-box #eclipse-iniciar,
+.eclipse-box #eclipse-reiniciar,
+.eclipse-box #eclipse-escolher-dificuldade {
+    background: linear-gradient(
+        135deg,
+        #203959,
+        #14294b
+    );
+
+    color: #ffffff;
+    border: 1px solid #34547f;
+    border-radius: 8px;
+
+    padding: 13px 22px;
+
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* =========================================================
+   35. RESPONSIVIDADE DO JOGO
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .eclipse-box {
+        padding: 10px;
+    }
+
+    .eclipse-cenario {
+        height: 360px;
+    }
+
+    .eclipse-painel {
+        padding: 12px 8px;
+    }
+
+    .eclipse-painel span {
+        font-size: 10px;
+        letter-spacing: 0;
+    }
+
+    .eclipse-painel strong {
+        font-size: 15px;
+    }
+
+    .eclipse-rodape {
+        font-size: 13px;
+    }
+
+    .eclipse-overlay {
+        gap: 8px;
+        padding: 12px;
+    }
+
+    .eclipse-overlay p {
+        font-size: 15px;
+    }
+
+    .eclipse-dificuldades {
+        padding: 10px;
+    }
+
+    .eclipse-box .eclipse-overlay .eclipse-dificuldade {
+        min-width: 75px;
+        padding: 9px 5px;
+        font-size: 12px;
+    }
+
+    .eclipse-configuracao button {
+        width: 100%;
+    }
+
+    .eclipse-box #eclipse-teclado {
+        font-size: 10px;
+        padding: 8px 12px;
+    }
+
+    .eclipse-controles-superiores {
+        justify-content: flex-end;
+        margin-bottom: 12px;
+    }
+
+    .eclipse-cabecalho {
+        margin-bottom: 15px;
+    }
+
+    .eclipse-box .eclipse-cabecalho h2 {
+        font-size: 25px;
+    }
+
+    .eclipse-configuracao p {
+        font-size: 12px;
+    }
+}
